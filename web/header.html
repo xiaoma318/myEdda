@@ -1,0 +1,64 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/mystyle.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="css/table.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen"/>
+
+<style type="text/css">
+ /* Customize the navbar links to be fill the entire space of the .navbar */
+      .navbar .navbar-inner {
+        padding: 0;
+      }
+      .navbar .nav {
+        margin: 0;
+        display: table;
+        width: 100%;
+      }
+      .navbar .nav li {
+        display: table-cell;
+        width: 1%;
+        float: none;
+      }
+      .navbar .nav li a {
+        font-weight: bold;
+        text-align: center;
+        border-left: 1px solid rgba(255,255,255,.75);
+        border-right: 1px solid rgba(0,0,0,.1);
+      }
+      .navbar .nav li:first-child a {
+        border-left: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .navbar .nav li:last-child a {
+        border-right: 0;
+        border-radius: 0 3px 3px 0;
+      }
+</style>
+
+</head>
+<body>
+ <div class="container">
+ <div class="masthead">
+        <h3> AWS Resource View</h3>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="main.html">Home</a></li>
+                <li><a href="instance.html">Instance</a></li>
+                <li><a href="#">S3 Bucket</a></li>
+                <li><a href="#">AutoScaling Group</a></li>
+                <li><a href="#">Security Group</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+</div>
+ </div>
+
+</body>
+</html>

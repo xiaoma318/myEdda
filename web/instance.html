@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+<title>ARV-Instance</title>
+<link rel="stylesheet" type="text/css" href="../css/theme.blue.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css"  media="screen">
+<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/helper.js"></script>
+<script src="../js/jquery-1.10.2.min.js"></script>
+<script src="../js/jquery.tablesorter.js"></script>
+<script src="../js/jquery.tablesorter.widgets.js"></script>
+</head>
+
+<body>
+<div class="container">
+  <div class="masthead">
+    <h3 class="muted"> AWS Resource View</h3>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li ><a href="home.html">Home</a></li>
+            <li class="active"><a href="#">Instance</a></li>
+            <li><a href="bucket.html">S3 Bucket</a></li>
+            <li><a href="autoscaling.html">AutoScaling Group</a></li>
+            <li><a href="securityGroup.html">Security Group</a></li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- /.navbar -->
+  </div>
+</div>
+
+<center>
+
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        <b>Filter</b>
+      </a>
+    </div>
+
+    <div id="collapseOne" class="accordion-body collapse ">
+      <div class="accordion-inner" style="width:850px;background:#40464b;border-radius:6px;padding:10px;">
+        <input  type="radio" value='period' name='date' id='date1' checked>
+        <label for='date1'><span></span></label>
+        <label style="color:white">From: </label><input style='width:100px' id='since' type='text' placeholder='2013/7/8 9:32'> 
+        <label style="color:white">To: </label><input style='width:100px' id='until' type='text'placeholder='2013/7/8 15:32'>
+         &nbsp;&nbsp;
+        <input  type="radio" value='exact' name='date' id='date2'>
+        <label for='date2'><span></span></label>
+        <label style="color:white">At:</label> <input style='width:100px' id='at' type='text' placeholder='2013/7/8 9:32'> 
+
+        <table align="center" >
+          <tr>
+            <td>
+              <input type="checkbox" id="c1" name="setCheckbox" onclick="selectAll()" checked/>
+              <label for="c1" ><span></span><b>Select All</b></label>
+            </td>
+          </tr>
+          <tr>
+            <td width="200px">
+              <input type="checkbox" id="c2" name="setCheckbox" style="margin:5px" value='imageId' checked />
+              <label for="c2"><span></span>Ami</label>
+            </td>
+            <td width="200px">
+              <input type="checkbox" name="setCheckbox" id="c6" style="margin:5px" value="instanceType" checked />
+              <label for="c6"><span></span>Instance Type</label>
+            </td>   
+            <td width="200px">
+              <input type="checkbox" name="setCheckbox" id="c7"  style="margin:5px" value="keyName" checked />
+              <label for="c7"><span></span>Key</label>
+            </td> 
+            <td>
+              <input type="checkbox" name="setCheckbox" id="c8"  style="margin:5px" value="launchTime" checked/>
+              <label for="c8"><span></span>Launch Time</label>
+            </td>
+          </tr>
+          <tr>
+            <td width="180px">
+              <input type="checkbox" id="c3" name="setCheckbox" style="margin:5px" value="placement:(availabilityZone)" checked />
+              <label for="c3"><span></span>Availability Zone</label>
+            </td>  
+            <td>
+              <input type="checkbox" name="setCheckbox" id="c9" style="margin:5px" value="privateIpAddress" checked/>
+              <label for="c9"><span></span>Private Ip</label>
+            </td>
+            <td>
+              <input type="checkbox" name="setCheckbox" id="c10" style="margin:5px" value="publicIpAddress" checked/>
+              <label for="c10"><span></span>Public Ip</label>
+            </td>   
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="setCheckbox" id="c5"  style="margin:5px" value="securityGroups:(groupName)" checked />
+              <label for="c5"><span></span>Security Groups</label></td>  
+            <td>
+              <input type="checkbox" name="setCheckbox" id="c12"  style="margin:5px" value="state:(name)" checked />
+              <label for="c12"><span></span>States</label>
+            </td> 
+            <td>
+              <input type="checkbox" name="setCheckbox" id="c11"  style="margin:5px" value="tags" checked />
+              <label for="c11"><span></span>Tags</label>
+            </td>   
+          </tr>
+        </table>
+
+        <table align='center' cellpadding="5" style='margin:10px'> 
+          <tr>
+           <td><input type="text" class="input-medium search-query" id="id" placeholder="InstanceId" > </td>
+           <td><input type="text" class="input-medium search-query" id="ami" placeholder="AMI"> </td>
+           <td><input type="text" class="input-medium search-query" id="publicIp" placeholder="Public Ip"> </td>
+          <td><input type="text" class="input-medium search-query" id="privateIp" placeholder="Private Ip"> </td>
+
+          </tr>
+          <tr>
+            <td><input type="text" class="input-medium search-query" id="zone" placeholder="Availability Zone"> </td>
+            <td><input type="text" class="input-medium search-query" id="tag" placeholder="tag" onkeypress="searchInstance()"> </td>
+            <td><select id='type' style="width:180px" onchange="searchInstance()">
+                  <option value="">Instance type</option>
+                  <option value="t1.micro">t1.micro</option>
+                  <option value="m1.small">m1.small</option>
+                  <option value="m1.medium">m1.medium</option>
+                  <option value="m1.large">m1.large</option>
+                  <option value="m1.xlarge">m1.xlarge</option>
+                  <option value="m2.xlarge">m2.xlarge</option>
+                  <option value="m2.2xlarge">m2.2xlarge</option>
+                  <option value="m2.4xlarge">m2.4xlarge</option>
+                  <option value="m3.xlarge">m3.xlarge</option>
+                  <option value="m3.2xlarge">m3.2xlarge</option>
+                </select>
+            </td>
+           <td>
+              <select id='state' style="width:180px" onchange="searchInstance()">
+                <option value="">State</option>
+                <option value="running">running</option>
+                <option value="stopped">stopped</option>
+                <option value="terminated">terminated</option>   
+              </select>
+           </td>   
+          </tr>
+          <tr>
+            <td colspan=8 align="center"> <button class='btn btn-info' onclick="searchInstance()"> Submit </button> </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<lable id='instanceNum' class='pull-right' style="margin-right:50px"></lable><br>
+<div id='result' style="margin:0px 10px 0px 10px;overflow:auto" </div>
+</center>
+
+<script type="text/javascript">searchInstance()</script>
+
+</body>
+</html>

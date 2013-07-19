@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+<title>ARV-AutoScaling Group</title>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css"  media="screen">
+<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../css/table.css" media="screen"/>
+
+<script src="../js/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript" >
+function search(){
+  var url = "../api/v2/aws/autoScalingGroups;_expand;_pp;"
+  var ul = "<table id='table1' border=1><tr>";
+
+  $.ajax({
+    url: url,    
+    success: function(data){
+
+      $.each(data[0],function(key,value){
+        if(key =='autoScalingGroupName' || key== "availabilityZones" || key=='createdTime'||key=='desiredCapacity'||key=='maxSize'||key=='minSize'||key=='healthCheckType'||key=='instances')
+           ul+="<th>"+key+"</th>";
+      }); //set the header of table
+
+    ul+="</tr>";
+
+    for(var i=0;i<data.length;i++){
+      ul+="<tr>";
+      $.each(data[i],function(key,val){
+        if(key =='autoScalingGroupName' || key== "availabilityZones"|| key=='createdTime'||key=='desiredCapacity'||key=='maxSize' ||key=='minSize'||key=='healthCheckType'||key=='instances')
+        ul+="<td>"+val+"</td>";
+     });
+
+     ul+="</tr>";
+    }
+
+    ul+="</table>";
+    $('#result').html(ul);
+    $('#groupnum').html('<b>You have: '+data.length+' securityGroups</b>');
+   }
+
+  });
+
+}
+</script>
+
+</head>
+<body>
+<div class="container">
+ <div class="masthead">
+    <h3 class="muted"> AWS Resource View</h3>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li ><a href="home.html">Home</a></li>
+            <li><a href="instance.html">Instance</a></li>
+            <li><a href="bucket.html">S3 Bucket</a></li>
+            <li class="active"><a href="#">AutoScaling Group</a></li>
+            <li><a href="securityGroup.html">Security Group</a></li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- /.navbar -->
+  </div>
+</div>
+
+<center>
+<lable id='groupnum' class='pull-right' style="margin-right:300px"></lable><br>
+<div id='result' style="margin-top:10px"></div>
+</center>
+
+<script type="text/javascript">search()</script>
+</body>
+</html>
