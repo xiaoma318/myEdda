@@ -21,6 +21,9 @@ to run it, you can use the command(mongo-data is the directory created by yousel
 
 5)Congratulations, you have started it, run it using any browers you like(the url should be something like Server URL/edda, as for me it's localhost:8080/edda.
 
+Screenshots
+=================
+See <a href ="https://docs.google.com/file/d/0B4HuB0nTzQgpTTQ4VFRUYWtlb2s/edit?usp=sharing">here</a>
 Contact me
 ==================
 Email:xiaoma318@yahoo.com
