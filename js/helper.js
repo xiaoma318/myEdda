@@ -52,7 +52,7 @@ function searchInstance(){
   var tag = document.getElementById('tag').value;
 
   href = href +at+since+until+";";
-  var ul = "<table class='tablesorter' style='width:auto;'><thead><tr><th>Instance</th>";
+  var ul = "<table class='tablesorter'><thead><tr><th>Instance</th>";
 
   var items= document.getElementsByName('setCheckbox');
   for(var i=1;i<items.length;i++){
@@ -68,7 +68,7 @@ function searchInstance(){
     }
   }
 
-  ul+="</tr></thead></tbody>";
+  ul+="</tr></thead><tbody>";
   
   $.ajax({
     url: href,    
@@ -77,7 +77,7 @@ function searchInstance(){
       for(var i=0;i<data1.length;i++){
         var item="";
         var count;
-        item +="<tr style='overflow:hidden;height:10px'><td style='overflow-y:hidden;height:20px'>"+data1[i]+"</td>";
+        item +="<tr><td>"+data1[i]+"</td>";
 
         $.ajax({
           url: "../api/v2/view/instances/"+data1[i]+";"+filter(),
