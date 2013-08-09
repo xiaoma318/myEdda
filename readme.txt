@@ -2,7 +2,7 @@ AWS Resource View(ARV) is a webapp that allows users to review their AWS resourc
 
 To use it, you need to do the following steps:
 
-1)Set up the account information and other related information in edda.properties file, which is in /WEB-INF/class/,the promise is that you have extract the .war file.
+1)Set up the account information and other related information in edda.properties file, which is in /WEB-INF/class/,the prerequisite is that you have extract the .war file.
 
 2)The default PermGen size is too small for gradle with scala most of the time also Edda stores all the AWS resources in memory so it can consume more memory that is typically allocated to Java, so increase the PermGen size and memory limits with this:
 
