@@ -1,6 +1,6 @@
 Description
 ==============
-AWS Resource View(ARV) is a webapp that allows users to review their AWS resource, which is based on the Netfliex Edda. Information includes EC2 Instance, S3 Buckets, AutoScaling Groups and Security Groups, users can not only keep track of the current information, but can also review the past records. And for instance, it provides advanced search and filter function, allowing users to search their instances using AMI, IP address, tags, etc.
+myEdda is a webapp that allows users to review their AWS resource, which is based on the Netfliex Edda. Information includes EC2 Instance, S3 Buckets, AutoScaling Groups and Security Groups, users can not only keep track of the current information, but can also review the past records. And for instance, it provides advanced search and filter function, allowing users to search their instances using AMI, IP address, tags, etc.
 
 Start using it
 ====================
