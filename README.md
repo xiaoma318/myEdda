@@ -20,7 +20,7 @@ to run it, you can use the command(mongo-data is the directory created by yousel
 4)Since it's a webapp, you need to run it on some server, as for me, I use Tomcat7(http://tomcat.apache.org/download-70.cgi). After starting the server, it takes several seconds to read your AWS resource information. 
 
 5)Congratulations, you have started it, run it using any browers you like(the url should be something like Server URL/edda, as for me it's localhost:8080/edda.
-Mbr>Here's a vedio for it. http://www.youtube.com/watch?v=E1hkGwnIiMY&feature=em-upload_owner
+<br>Here's a vedio for it. http://www.youtube.com/watch?v=E1hkGwnIiMY&feature=em-upload_owner
 Screenshots
 =================
 See <a href ="https://docs.google.com/file/d/0B4HuB0nTzQgpTTQ4VFRUYWtlb2s/edit?usp=sharing">here</a>
